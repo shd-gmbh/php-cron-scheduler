@@ -3,6 +3,7 @@
 use DateTime;
 use Exception;
 use InvalidArgumentException;
+use Cron\CronExpression;
 
 class Job
 {
@@ -47,7 +48,7 @@ class Job
     /**
      * Job schedule time.
      *
-     * @var Cron\CronExpression
+     * @var CronExpression
      */
     private $executionTime;
 
@@ -586,5 +587,10 @@ class Job
         }
 
         return $this;
+    }
+
+    public function getExecutionTime(): CronExpression
+    {
+        return $this->executionTime;
     }
 }
